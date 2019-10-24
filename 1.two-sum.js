@@ -1,6 +1,6 @@
 /*
  * @lc app=leetcode id=1 lang=javascript
- *
+ * @desc 用 hash table 解决这个问题
  * [1] Two Sum
  */
 /**
