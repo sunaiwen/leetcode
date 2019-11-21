@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/66.plus-one.js"
+      "program": "${workspaceFolder}/88.merge-sorted-array.js"
     }
   ]
 }
