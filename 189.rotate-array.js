@@ -53,22 +53,45 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 /**
- * 思路：其实就是要自己实现一个原生的 pop 方法逻辑，不停的 pop，补到最前面
+ * 思路：其实就是要自己实现一个原生的 pop 方法逻辑，不停的 pop，补到最前面，这个解法最暴力
  * @param {*} nums 
  * @param {*} k 
  */
-var rotate = function(nums, k) {
-  let len = nums.length
-  while (k > 0) {
-    let pop = nums[len - 1]
-    for (let i = len - 1; i >= 0; i--) {
-      nums[i] = nums[i - 1]
-    }
-    nums[0] = pop
-    k -= 1
+// var rotate = function(nums, k) {
+//   let len = nums.length
+//   while (k > 0) {
+//     let pop = nums[len - 1]
+//     for (let i = len - 1; i >= 0; i--) {
+//       nums[i] = nums[i - 1]
+//     }
+//     nums[0] = pop
+//     k -= 1
+//   }
+//   return nums
+// };
+
+/**
+ * 
+ * @param {*} nums 
+ * @param {*} step 
+ * 不如直接把元素移动 k 步？这样子每个元素只需要移动一次，长度为 n 的数组需要移动 n 次。
+ * 所以事件复杂度为 O(n)
+ */
+var rotate = function (nums, step) {
+  let stepCnt = 0
+  for (let startIndex = 0; stepCnt < nums.length; startIndex++) {
+    let prevVal = nums[startIndex]
+    let currentIndex = startIndex
+
+    do {
+      currentIndex = (currentIndex + step) % nums.length  
+      let tmp = nums[currentIndex]
+      nums[currentIndex] = prevVal
+      prevVal = tmp  
+      stepCnt += 1
+    } while (currentIndex !== startIndex)
   }
-  return nums
-};
+}
 
 // @lc code=end
 
