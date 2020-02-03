@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/122.best-time-to-buy-and-sell-stock-ii.js"
+      "program": "${workspaceFolder}/217.contains-duplicate.js"
     }
   ]
 }
