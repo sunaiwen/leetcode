@@ -56,7 +56,7 @@ var levelOrderBottom = function(root) {
       return []
     }
 
-    let ret = [[root.val]]
+    let ret = []
     let queue = [root]
 
     while  (queue.length > 0) {
