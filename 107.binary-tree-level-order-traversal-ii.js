@@ -50,6 +50,7 @@
 /**
  * @param {TreeNode} root
  * @return {number[][]}
+ *  思路：就是一层层的扫而已，还是正向扫，但是反向添加到队列中。
  */
 var levelOrderBottom = function(root) {
     if (!root) {
