@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/217.contains-duplicate.js"
+      "program": "${workspaceFolder}/108.convert-sorted-array-to-binary-search-tree.js"
     }
   ]
 }
