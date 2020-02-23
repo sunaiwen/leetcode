@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/108.convert-sorted-array-to-binary-search-tree.js"
+      "program": "${workspaceFolder}/720.longest-word-in-dictionary.js"
     }
   ]
 }
