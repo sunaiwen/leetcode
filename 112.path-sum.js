@@ -50,28 +50,70 @@
  * @return {boolean}
  * 思路一：dfs 遍历，直到找到 sum 为止
  */
-var hasPathSum = function(root, sum) {
+// var hasPathSum = function(root, sum) {
+//   if (!root) {
+//     return false
+//   }
+
+//   let ret = false
+//   if (root.left) {
+//     ret = hasPathSum(root.left, sum - root.val)
+//   }
+//   if (!ret && root.right) {
+//     ret = hasPathSum(root.right, sum - root.val)
+//   }
+//   if (!root.left && !root.right) {
+//     ret = sum === root.val
+//   }
+
+//   return ret
+// };
+
+// 思路二，遍历
+var hasPathSum = function (root, sum) {
   if (!root) {
     return false
   }
+  const stack = [root]
+  const sumStack = [sum]
 
-  let ret = false
-  if (root.left) {
-    ret = hasPathSum(root.left, sum - root.val)
-  }
-  if (!ret && root.right) {
-    ret = hasPathSum(root.right, sum - root.val)
-  }
-  if (!root.left && !root.right) {
-    ret = sum === root.val
+  while (stack.length > 0) {
+    const node = stack.pop()
+    const sum = sumStack.pop()
+    const curSum = sum - node.val
+    if (isFound(node, sum)) {
+      return true
+    }
+    if (node.left) {
+      const leftNode = node.left
+      if (isFound(leftNode, curSum)) {
+        return true
+      } else {
+        stack.push(leftNode)
+        sumStack.push(curSum)
+      }
+    }
+    if (node.right) {
+      const rightNode = node.right
+      if (isFound(rightNode, curSum)) {
+        return true
+      } else {
+        stack.push(rightNode)
+        sumStack.push(curSum)
+      }
+    }
   }
 
-  return ret
-};
+  return false
+}
+
+function isFound (node, curSum) {
+  return curSum - node.val === 0 && !node.left && !node.right
+}
 
 // test
 // const arrayToTree = require('./utils/arrayToTree.js')
-// const ret = hasPathSum(arrayToTree([1]), 1)
+// const ret = hasPathSum(arrayToTree([1,2]), 2)
 // console.log(ret)
 // @lc code=end
 
