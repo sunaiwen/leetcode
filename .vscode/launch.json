@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/720.longest-word-in-dictionary.js"
+      "program": "${workspaceFolder}/112.path-sum.js"
     }
   ]
 }
