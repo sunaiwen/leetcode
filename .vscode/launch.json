@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/112.path-sum.js"
+      "program": "${workspaceFolder}/70.climbing-stairs.js"
     }
   ]
 }
