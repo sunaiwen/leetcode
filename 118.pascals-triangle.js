@@ -8,6 +8,7 @@
 /**
  * @param {number} numRows
  * @return {number[][]}
+ * 思路：最关键的是要知道从长度大于 3 开始，非首尾的元素的和都由上一层的同一下标(i)的元素和其前面的元素(i - 1) 的和相加而得。
  */
 var generate = function(numRows) {
   let tria = []
