@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/2.add-two-numbers.js"
+      "program": "${workspaceFolder}/61.rotate-list.js"
     }
   ]
 }
