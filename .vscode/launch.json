@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/70.climbing-stairs.js"
+      "program": "${workspaceFolder}/2.add-two-numbers.js"
     }
   ]
 }
