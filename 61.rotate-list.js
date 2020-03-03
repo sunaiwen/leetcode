@@ -51,6 +51,7 @@
  * @param {ListNode} head
  * @param {number} k
  * @return {ListNode}
+ * 思路：计算整个链表的长度，然后通过长度差去拿到分隔的节点，重新拼接。时间复杂度 O(n)。
  */
 var rotateRight = function(head, k) {
   if (head == null) {
@@ -97,6 +98,13 @@ var rotateRight = function(head, k) {
 
   return newHead
 };
+
+/**
+ * leetcode discussion 里面的 two pointer 思路：
+ * you can use a two pointer technique where the 'fast' pointer is always k nodes ahead of 'slow'. 
+ * By the time 'fast' reaches the last node, 'slow' must be pointing to the (k+1)th nodes from backwards, 
+ * then you can simply detach slow->next from slow, then set fast->next to head, and you are done.
+ */
 
 // test
 // const a2l = require('./utils/arrayToLinkList')
