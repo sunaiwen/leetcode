@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/61.rotate-list.js"
+      "program": "${workspaceFolder}/92.reverse-linked-list-ii.js"
     }
   ]
 }
