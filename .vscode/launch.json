@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/19.remove-nth-node-from-end-of-list.js"
+      "program": "${workspaceFolder}/82.remove-duplicates-from-sorted-list-ii.js"
     }
   ]
 }
