@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/82.remove-duplicates-from-sorted-list-ii.js"
+      "program": "${workspaceFolder}/13.roman-to-integer.js"
     }
   ]
 }
