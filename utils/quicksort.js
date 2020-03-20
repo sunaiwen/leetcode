@@ -1,4 +1,4 @@
-module.exports = function quicksort (nums) {
+function quicksort (nums) {
   sort(nums, 0, nums.length - 1)
   return nums
 }
@@ -8,7 +8,9 @@ function sort (nums, lo, hi) {
     return
   }
   const j = partition(nums, lo, hi)
-  sort(nums, lo, j - 1)
+  if (j > 1) {
+    sort(nums, lo, j - 1)
+  }
   sort(nums, j + 1, hi)
 }
 
@@ -20,16 +22,21 @@ function partition (nums, lo, hi) {
   while (true) {
     while (nums[i] < v) {
       i += 1
+      if (i === hi) {
+        break
+      }
     }
     while (nums[j] > v) {
       j -= 1
+      if (j === lo) {
+        break
+      }
     }
 
     if (i >= j || i >= hi || j <= lo) {
       break
-    } else {
-      extrange(nums, i, j)
     }
+    extrange(nums, i, j)
   }
 
   extrange(nums, lo, j)
