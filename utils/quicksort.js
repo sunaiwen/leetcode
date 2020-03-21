@@ -15,19 +15,17 @@ function sort (nums, lo, hi) {
 }
 
 function partition (nums, lo, hi) {
-  let i = lo + 1
-  let j = hi
+  let i = lo
+  let j = hi + 1
   let v = nums[lo]
 
   while (true) {
-    while (nums[i] < v) {
-      i += 1
+    while (nums[++i] < v) {
       if (i === hi) {
         break
       }
     }
-    while (nums[j] > v) {
-      j -= 1
+    while (nums[--j] > v) {
       if (j === lo) {
         break
       }

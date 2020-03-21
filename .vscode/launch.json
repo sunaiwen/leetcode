@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/13.roman-to-integer.js"
+      "program": "${workspaceFolder}/15.3-sum.js"
     }
   ]
 }
