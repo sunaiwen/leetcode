@@ -57,90 +57,96 @@
  * @param {number[]} candidates
  * @param {number} target
  * @return {number[][]}
+ * 思路一：一点都不清晰，大概就是分整除、不能整除、刚好相等几种情况。为了补漏，到后面又递归一次………
+ * 只击败 5% 的人……
  */
-var combinationSum = function(candidates, target, map = {}) {
-    candidates = candidates.sort()
-    const collection = []
-    const len = candidates.length
+// var combinationSum = function(candidates, target, map = {}) {
+//     candidates = candidates.sort()
+//     const collection = []
+//     const len = candidates.length
 
-    for (let i = 0; i < len; i++) {
-      map[candidates[i]] = true
-    }
+//     for (let i = 0; i < len; i++) {
+//       map[candidates[i]] = true
+//     }
 
-    for (let i = len - 1; i >= 0; i--) {
-      const val = candidates[i]
-      if (target < val) {
-        continue
-      }
+//     for (let i = len - 1; i >= 0; i--) {
+//       const val = candidates[i]
+//       if (target < val) {
+//         continue
+//       }
 
-      if (target === val) {
-        collection.push([val])
-      } else {
-        const left = target % val
+//       if (target === val) {
+//         if (has(collection, [val]) === false) {
+//           collection.push([val])
+//         } 
+//       } else {
+//         const left = target % val
 
-        if (left === 0) {
-          const cnt = target / val
-          collection.push(newRepeatElArray(val, cnt))
-        } else if (map[left]) {
-          const cnt = (target - left) / val
-          const arr = newRepeatElArray(val, cnt)
-          if (left > val) {
-            arr.push(left)
-          } else {
-            arr.unshift(left)
-          }
-          collection.push(arr)
-          console.log(arr, 'else if')
-        }
+//         if (left === 0) {
+//           const cnt = target / val
+//           collection.push(newRepeatElArray(val, cnt))
+//         } else if (map[left]) {
+//           const cnt = (target - left) / val
+//           const arr = newRepeatElArray(val, cnt)
+//           if (left > val) {
+//             arr.push(left)
+//           } else {
+//             arr.unshift(left)
+//           }
 
-        const subCollection = combinationSum(candidates, target - val)
+//           if (has(collection, arr) === false) {
+//             collection.push(arr)
+//           }
+//         }
 
-        for (let i = 0; i < subCollection.length; i++) {
-          const newList = subCollection[i]
-          newList.push(val)
-          newList.sort(function (a, b) { return a - b })
-          if (has(collection, newList) === false) {
-            collection.push(newList)
-          }
-        }
-      } 
-    }
+//         const subCollection = combinationSum(candidates, target - val)
 
-    return collection
-};
+//         for (let i = 0; i < subCollection.length; i++) {
+//           const newList = subCollection[i]
+//           newList.push(val)
+//           newList.sort(function (a, b) { return a - b })
+//           if (has(collection, newList) === false) {
+//             collection.push(newList)
+//           }
+//         }
+//       } 
+//     }
 
-function newRepeatElArray (val, len) {
-  let arr = []
+//     return collection
+// };
 
-  for (let i = 0; i < len; i++) {
-    arr.push(val)
-  }
-  return arr
-}
+// function newRepeatElArray (val, len) {
+//   let arr = []
 
-function has (collections, arr) {
-  for (let i = collections.length - 1; i >= 0; i--) {
-    const curArr = collections[i]
-    let same = true
-    if (curArr.length !== arr.length) {
-      continue
-    }
-    for (let j = 0; j < curArr.length; j++) {
-      if (curArr[j] !== arr[j]) {
-        same = false
-      }
-    }
+//   for (let i = 0; i < len; i++) {
+//     arr.push(val)
+//   }
+//   return arr
+// }
 
-    if (same === true) {
-      return true
-    }
-  }
+// function has (collections, arr) {
+//   for (let i = collections.length - 1; i >= 0; i--) {
+//     const curArr = collections[i]
+//     let same = true
+//     if (curArr.length !== arr.length) {
+//       continue
+//     }
+//     for (let j = 0; j < curArr.length; j++) {
+//       if (curArr[j] !== arr[j]) {
+//         same = false
+//       }
+//     }
 
-  return false
-}
+//     if (same === true) {
+//       return true
+//     }
+//   }
+
+//   return false
+// }
 
 //test
-console.log(JSON.stringify(combinationSum([3,12,9,11,6,7,8,5,4], 15)))
+// console.log(JSON.stringify(combinationSum([3,12,9,11,6,7,8,5,4], 15)))
 
 // @lc code=end
 
