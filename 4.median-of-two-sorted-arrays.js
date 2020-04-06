@@ -45,6 +45,13 @@
  * @param {number[]} nums1
  * @param {number[]} nums2
  * @return {number}
+ * 思路：我自己根本没法解这道题，是看了这篇文章：https://medium.com/@hazemu/finding-the-median-of-2-sorted-arrays-in-logarithmic-time-1d3f2ecbeb46
+ * 对于这道题，我们唯一知道的就是总长度的一半就是中点在的地方。那问题是，在长度的一半这个区间，两个数组各贡献多少个元素呢？
+ * 比如两个数组总长度是 12，一半就是 6，那各贡献的长度就有好几种，比如 a 1 b 5, a 3 b 3 等等等。
+ * 我们能做的就是不停的试，a 的贡献长度多一点，b 的贡献长度少一点这样子去试。
+ * 但怎么决定何时减少或者增多 a 或 b 的贡献长度呢？如果 b 的最后的值比 a 最后值要大，说明中点出现在 a 的终点值后方的机率更大，因为 a 终点到 b 终点还有一定区间呢。
+ * 
+ * 那如何保证算法时间复杂度是 logn 呢？主要是如何去试 a 和 b 的贡献长度的问题。这里需要以二分法去试，而不是一个个试。
  */
 var findMedianSortedArrays = function(nums1, nums2) {
   let aLen = nums1.length
