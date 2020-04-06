@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/142.linked-list-cycle-ii.js"
+      "program": "${workspaceFolder}/4.median-of-two-sorted-arrays.js"
     }
   ]
 }
