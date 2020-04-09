@@ -69,39 +69,29 @@
  * @return {ListNode}
  */
 var insertionSortList = function(head) {
+  const stack = []
   let currentNode = head
-  let currentNextNode = currentNode.next
-
-  while (currentNextNode) {
-    let prevNode
-    currentNextNode = currentNode.next
-
-    while (currentNode.next) {
-      const tempNode = currentNode.next
-
-      if (currentNode.val > tempNode.val) {
-        prevNode = currentNode
-        currentNode = tempNode
-        continue
-      } else {
-        if (prevNode) {
-          swap(prevNode, currentNode, tempNode)
-        }
-        break
-      }
-    }
-
-    currentNode = currentNextNode
-    prevNode = null
+  while (currentNode) {
+    stack.push(currentNode)
+    currentNode = currentNode.next
   }
+
+  let cur
+  let prev
+  while (stack.length) {
+    cur = stack.pop()
+    prev = stack.pop()
+
+    
+  }
+
 };
 
-function swap (prev, current, nextNode) {
-  prev.next = current.next
-  current.next = nextNode.next
-  nextNode.next = current
-
-  return current
+function insert (prev, cur, next) {
+  const tmpNext = cur.next
+  prev.next = cur
+  cur.next = next
+  return tmpNext
 }
 
 const a2l = require('./utils/arrayToLinkList')
