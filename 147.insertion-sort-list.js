@@ -76,28 +76,41 @@ var insertionSortList = function(head) {
     currentNode = currentNode.next
   }
 
-  let cur
-  let prev
-  while (stack.length) {
-    cur = stack.pop()
-    prev = stack.pop()
+  let cur = stack.pop()
+  let prev = stack.pop()
+  while (prev || cur) {
+    let tempPrev = cur
+    let tempNext = cur.next
+    while (tempNext) {
+      if (tempNext && cur.val > tempNext.val) {
+        tempPrev = tempNext
+        tempNext = tempNext.next
+      } else {
+        break
+      }
+    }
 
-    
+    if (tempPrev !== cur) {
+      if (prev) {
+        prev.next = prev.next.next
+      } else {
+        head = cur.next
+      }
+      tempPrev.next = cur
+      cur.next = tempNext
+    }
+
+    cur = prev
+    prev = stack.pop()
   }
 
+  return head
 };
 
-function insert (prev, cur, next) {
-  const tmpNext = cur.next
-  prev.next = cur
-  cur.next = next
-  return tmpNext
-}
+// const a2l = require('./utils/arrayToLinkList')
+// const l2a = require('./utils/linkListToArray')
 
-const a2l = require('./utils/arrayToLinkList')
-const l2a = require('./utils/linkListToArray')
-
-const testData = [5,6,1,9,3,2,5,4,19,4,1]
-console.log(l2a(insertionSortList(a2l(testData))))
+// const testData = [4,2,1,3]
+// console.log(l2a(insertionSortList(a2l(testData))))
 // @lc code=end
 
