@@ -67,6 +67,8 @@
 /**
  * @param {ListNode} head
  * @return {ListNode}
+ * 思路：遍历一遍链表，把节点压入栈，每次取两个出来排序，把右边变成 insertion sort 的 sorted range，和通常的放在左边的方式相反，
+ * 但刚好又能顺着链表的方向。
  */
 var insertionSortList = function(head) {
   const stack = []
