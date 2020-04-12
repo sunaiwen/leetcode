@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/147.insertion-sort-list.js"
+      "program": "${workspaceFolder}/67.add-binary.js"
     }
   ]
 }
