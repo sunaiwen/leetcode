@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/67.add-binary.js"
+      "program": "${workspaceFolder}/560.subarray-sum-equals-k.js"
     }
   ]
 }
