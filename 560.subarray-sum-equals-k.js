@@ -39,36 +39,32 @@
  * @param {number} k
  * @return {number}
  * 
- * 思路：sliding window 类型。
+ * 思路：无法用 sliding window，因为有负数…
+ * 
+ * 记录之前的所有 sum，那些 sum 可能是由 0 到 i，也有可能是 0 到 j，但只要找到一个当前的数相加之和减去
+ * k 刚好等于之前记录的 sum，就可以说明组成那个 sum 的最后一个下标比如是 j，到当前的下标比如是 z，是有一个区间的
+ * 相加之和是 k 的！佩服佩服…
+ * 这道题没想出来，参考了 discussion 的最高赞回答…
  */
 var subarraySum = function(nums, k) {
-  let start = 0
-  let end = 0
-  let count = 0
-  let currentSum = nums[0]
+  const map = new Map()
+  let preSum = 0
+  let result = 0
+  let sum = 0
+  map.set(0, 1)
 
-  while (end < nums.length) {
-    if (currentSum <= k) {
-      if (currentSum === k) {
-        count += 1
-      } else {
-        while (nums[start] < 0 && start < end) {
-          start += 1
-          currentSum -= nums[start]
-        }
-      }
-      end += 1
-      currentSum += nums[end]
-
-    } else {
-      start += 1
-      currentSum -= nums[start]
+  for (let i = 0; i < nums.length; i++) {
+    sum += nums[i]
+    if (map.has(sum - k)) {
+      result += map.get(sum - k)
     }
+    const preSumCount = map.get(sum) || 0
+    map.set(sum, preSumCount + 1)
   }
 
-  return count
+  return result
 };
 
-console.log(subarraySum([-1, -1, 1], 0))
+console.log(subarraySum([1], 0))
 // @lc code=end
 
