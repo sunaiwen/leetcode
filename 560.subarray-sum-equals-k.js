@@ -39,7 +39,7 @@
  * @param {number} k
  * @return {number}
  * 
- * 思路：无法用 sliding window，因为有负数…
+ * 思路：仍然锯齿 sliding window...
  * 
  * 记录之前的所有 sum，那些 sum 可能是由 0 到 i，也有可能是 0 到 j，但只要找到一个当前的数相加之和减去
  * k 刚好等于之前记录的 sum，就可以说明组成那个 sum 的最后一个下标比如是 j，到当前的下标比如是 z，是有一个区间的
