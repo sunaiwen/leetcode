@@ -78,58 +78,66 @@
  * 思路一：较低效……遍历到链表的某个节点，再从 head 节点遍历一次过来，看看会不会在碰到当前节点之前，碰到当前节点的 next。
  * 如果碰到了，就说明有环。
  */
-var detectCycle = function(head) {
-  if (head == null || head.next == null) {
-    return null
-  }
-  if (head.next === head) {
-    return head
-  }
-  let tmp = head
+// var detectCycle = function(head) {
+//   if (head == null || head.next == null) {
+//     return null
+//   }
+//   if (head.next === head) {
+//     return head
+//   }
+//   let tmp = head
 
-  while (tmp.next) {
-    tmp = tmp.next
+//   while (tmp.next) {
+//     tmp = tmp.next
 
-    if (tmp.next === tmp) {
-      return tmp
-    }
-    let tmpNext = head
-    while (tmpNext !== tmp) {
-      if (tmpNext === tmp.next) {
-        return tmpNext
-      }
-      tmpNext = tmpNext.next
-    }
-  }
+//     if (tmp.next === tmp) {
+//       return tmp
+//     }
+//     let tmpNext = head
+//     while (tmpNext !== tmp) {
+//       if (tmpNext === tmp.next) {
+//         return tmpNext
+//       }
+//       tmpNext = tmpNext.next
+//     }
+//   }
 
-  return null
-};
+//   return null
+// };
 
-const atl = require('./utils/arrayToLinkList')
-const node = atl([-1,-7,7,-4,19,6,-9,-5,-2,-5])
-let tmp = node
-let index = 0
-let cycleNode
+// const atl = require('./utils/arrayToLinkList')
+// const node = atl([-1,-7,7,-4,19,6,-9,-5,-2,-5])
+// let tmp = node
+// let index = 0
+// let cycleNode
 
-while (tmp) {
-  if (index === 9) {
-    cycleNode = tmp
-    // console.log(tmp)
-  }
+// while (tmp) {
+//   if (index === 9) {
+//     cycleNode = tmp
+//     // console.log(tmp)
+//   }
 
-  if (!tmp.next) {
-    break
-  }
-  tmp = tmp.next
-  index += 1
+//   if (!tmp.next) {
+//     break
+//   }
+//   tmp = tmp.next
+//   index += 1
+// }
+// tmp.next = cycleNode
+
+
+// console.log(
+//   detectCycle(
+//     node
+//   )
+// )
+
+
+/**
+ * 思路 2: 拿两个指针，第一个指针每次挪一位，第二个指针每次挪两位，这个算法叫 Floyd 算法...
+ */
+var detectCycle = function () {
+  
 }
-tmp.next = cycleNode
-
-
-console.log(
-  detectCycle(
-    node
-  )
-)
 // @lc code=end
 
