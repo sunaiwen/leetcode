@@ -134,10 +134,38 @@
 
 
 /**
- * 思路 2: 拿两个指针，第一个指针每次挪一位，第二个指针每次挪两位，这个算法叫 Floyd 算法...
+ * 思路 2: 拿两个指针，第一个指针每次挪一位，第二个指针每次挪两位，这个算法叫 Floyd's cycle detection。
  */
-var detectCycle = function () {
-  
+var detectCycle = function (head) {
+  let slowP = head
+  let fastP = head
+  let isCycle = false
+
+  while (slowP && fastP) {
+    slowP = slowP.next
+
+    if (fastP.next == null) {
+      return null
+    }
+    fastP = fastP.next.next
+
+    if (slowP === fastP) {
+      isCycle = true
+      break
+    }
+  }
+
+  if (!isCycle) {
+    return null
+  }
+
+  slowP = head
+  while (slowP !== fastP) {
+    slowP = slowP.next
+    fastP = fastP.next
+  }
+
+  return slowP
 }
 // @lc code=end
 
