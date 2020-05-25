@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/58.length-of-last-word.js"
+      "program": "${workspaceFolder}/80.remove-duplicates-from-sorted-array-ii.js"
     }
   ]
 }
