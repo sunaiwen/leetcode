@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/80.remove-duplicates-from-sorted-array-ii.js"
+      "program": "${workspaceFolder}/others/knapsack-problem-bottom-to-top-method.js"
     }
   ]
 }
