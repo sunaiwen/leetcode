@@ -26,18 +26,19 @@ var minSubArrayLen = function(s, nums) {
   let lp = 0
   let rp = 0
   let minLen
+  let sum = nums[rp]
 
   while (rp <= nums.length - 1) {
-    const sum = getSum(lp, rp, nums)
-
     if (sum < s) {
       rp += 1
+      sum += nums[rp]
     } else {
       const curLen = rp - lp + 1
       if (typeof minLen === 'undefined' || curLen < minLen) {
         minLen = curLen
       }
 
+      sum -= nums[lp]
       lp += 1
     }
   }
@@ -49,20 +50,6 @@ var minSubArrayLen = function(s, nums) {
   return minLen
 };
 
-function getSum (left, right, arr) {
-  if (left === right) {
-    return arr[right]
-  }
-
-  let sum = 0
-  while (left <= right) {
-    sum += arr[left]
-    left += 1
-  }
-
-  return sum
-}
-
-minSubArrayLen(7, [2,3,1,2,4,3])
+// minSubArrayLen(7, [2,3,1,2,4,3])
 // @lc code=end
 
