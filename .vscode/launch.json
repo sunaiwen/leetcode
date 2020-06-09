@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/209.minimum-size-subarray-sum.js"
+      "program": "${workspaceFolder}/424.longest-repeating-character-replacement.js"
     }
   ]
 }
