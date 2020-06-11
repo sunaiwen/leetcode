@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/424.longest-repeating-character-replacement.js"
+      "program": "${workspaceFolder}/1004.max-consecutive-ones-iii.js"
     }
   ]
 }
