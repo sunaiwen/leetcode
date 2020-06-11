@@ -2,6 +2,9 @@
  * @lc app=leetcode id=424 lang=javascript
  *
  * [424] Longest Repeating Character Replacement
+ * 
+ * 思路：sliding window，加大窗口，等到最大数量的字符之外的字符数大于 k 时，再缩小窗口，当等于或者小于 s 时，取本次结果
+ * 记录下来，如此循环，知道窗口右侧的指针已经到了入参字符串的末尾。
  */
 
 // @lc code=start
@@ -31,8 +34,8 @@ var characterReplacement = function(s, k) {
     }
 
     while (rp - lp + 1 - maxCount > k) {
-      lp += 1
       countArr[getIndex(s, lp)] -= 1
+      lp += 1
 
       maxCount = 0
       for (let i = 0; i < 26; i++) {
@@ -52,6 +55,6 @@ function getIndex (s, idx) {
   return s.charCodeAt(idx) - 'A'.charCodeAt(0)
 }
 
-characterReplacement("ABAA", 0)
+// characterReplacement("ABAA", 0)
 // @lc code=end
 
