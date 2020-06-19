@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/1004.max-consecutive-ones-iii.js"
+      "program": "${workspaceFolder}/1089.duplicate-zeros.js"
     }
   ]
 }
