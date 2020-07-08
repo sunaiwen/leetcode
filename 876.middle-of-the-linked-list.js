@@ -32,6 +32,19 @@ var middleNode = function(head) {
   return head
 };
 
+// 更好的思路：取两个指针，慢的一次走一步，快的一次走两步，等快的走到了链表尽头，那慢的就刚好停在链表的中间。
+var middleNode = function (head) {
+  let slow = head
+  let fast = head
 
+  while (fast && fast.next) {
+    slow = slow.next
+    fast = fast.next.next
+  }
+
+  return slow
+}
+
+// 两个方法的时间复杂度都是 O(n)
 
 // @lc code=end
