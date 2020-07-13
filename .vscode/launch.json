@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/56.merge-intervals.js"
+      "program": "${workspaceFolder}/206.reverse-linked-list.js"
     }
   ]
 }
