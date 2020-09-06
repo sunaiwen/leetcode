@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/113.path-sum-ii.js"
+      "program": "${workspaceFolder}/98.validate-binary-search-tree.js"
     }
   ]
 }
