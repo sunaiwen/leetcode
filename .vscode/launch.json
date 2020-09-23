@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/704.binary-search.js"
+      "program": "${workspaceFolder}/912.sort-an-array.js"
     }
   ]
 }
