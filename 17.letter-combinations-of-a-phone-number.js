@@ -23,6 +23,12 @@ const map = {
 }
 
 // BFS
+/**
+ * 对于 BFS，从第一个输入的层级开始，第一层和第二层混合，然后一二层混合的产物，再和接下来的层混合。
+ * 直到最后一层。
+ *
+ * 对于 DFS，先往最深处一直叠加，然后返回上一层，基于本层再次往深处叠加。依次规律继续进行。
+ */
 var letterCombinations = function(digits) {
   if(!digits) {
     return []
