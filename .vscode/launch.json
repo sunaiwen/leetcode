@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/46.permutations.js"
+      "program": "${workspaceFolder}/39.combination-sum.js"
     }
   ]
 }

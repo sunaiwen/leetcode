@@ -60,93 +60,42 @@
  * 思路一：一点都不清晰，大概就是分整除、不能整除、刚好相等几种情况。为了补漏，到后面又递归一次………
  * 只击败 5% 的人……
  */
-// var combinationSum = function(candidates, target, map = {}) {
-//     candidates = candidates.sort()
-//     const collection = []
-//     const len = candidates.length
 
-//     for (let i = 0; i < len; i++) {
-//       map[candidates[i]] = true
-//     }
+// DFS
+// 思路：把这道题目变成 search 的角度去看。把所有的可能性展开为一棵树。
+// 2 作为根展开后，3 展开的树将不包含 2，6 也是如此。这样可以保证 2 那里
+// 查询过的所有结果中，可以向后包含，但是 3 的树查询的结果不会包含 2.
+// 这样的作用是，防止重复查询。
 
-//     for (let i = len - 1; i >= 0; i--) {
-//       const val = candidates[i]
-//       if (target < val) {
-//         continue
-//       }
+var combinationSum = function(candidates, target) {
+  const ret = []
+  search([], candidates, target, ret)
+  return ret
+}
 
-//       if (target === val) {
-//         if (has(collection, [val]) === false) {
-//           collection.push([val])
-//         } 
-//       } else {
-//         const left = target % val
+function search(cur, candidates, target, ret) {
+  for(let i = 0; i < candidates.length; i++) {
+    const candidate = candidates[i]
+    if(candidate < target) {
+      search(cur.concat([candidate]), candidates.slice(i), target - candidate, ret)
+    } else if(candidate > target) {
+      continue
+    } else {
+      ret.push(cur.concat([candidate]))
+    }
+  }
+}
 
-//         if (left === 0) {
-//           const cnt = target / val
-//           collection.push(newRepeatElArray(val, cnt))
-//         } else if (map[left]) {
-//           const cnt = (target - left) / val
-//           const arr = newRepeatElArray(val, cnt)
-//           if (left > val) {
-//             arr.push(left)
-//           } else {
-//             arr.unshift(left)
-//           }
-
-//           if (has(collection, arr) === false) {
-//             collection.push(arr)
-//           }
-//         }
-
-//         const subCollection = combinationSum(candidates, target - val)
-
-//         for (let i = 0; i < subCollection.length; i++) {
-//           const newList = subCollection[i]
-//           newList.push(val)
-//           newList.sort(function (a, b) { return a - b })
-//           if (has(collection, newList) === false) {
-//             collection.push(newList)
-//           }
-//         }
-//       } 
-//     }
-
-//     return collection
-// };
-
-// function newRepeatElArray (val, len) {
-//   let arr = []
-
-//   for (let i = 0; i < len; i++) {
-//     arr.push(val)
-//   }
-//   return arr
-// }
-
-// function has (collections, arr) {
-//   for (let i = collections.length - 1; i >= 0; i--) {
-//     const curArr = collections[i]
-//     let same = true
-//     if (curArr.length !== arr.length) {
-//       continue
-//     }
-//     for (let j = 0; j < curArr.length; j++) {
-//       if (curArr[j] !== arr[j]) {
-//         same = false
-//       }
-//     }
-
-//     if (same === true) {
-//       return true
-//     }
-//   }
-
-//   return false
-// }
+function sum(list) {
+  let ret = 0
+  for(let i = 0; i < list.length; i++) {
+    ret += list[i]
+  }
+  return ret
+}
 
 //test
-// console.log(JSON.stringify(combinationSum([3,12,9,11,6,7,8,5,4], 15)))
+console.log(JSON.stringify(combinationSum([2, 3, 6, 7], 7)))
 
 // @lc code=end
 
