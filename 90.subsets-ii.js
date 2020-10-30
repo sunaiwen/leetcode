@@ -25,27 +25,54 @@
  * Time Complexity: O(2 ^ n)
  * Space Complexity: O(2 ^ n)
  */
+// var subsets = function(nums) {
+//   const ret = [[]]
+//   let startIdx = 0
+//   let endIdx = 0
+
+//   for(let i = 0; i < nums.length; i++) {
+//     startIdx = 0
+
+//     if(i > 0 && nums[i] === nums[i - 1]) {
+//       startIdx = endIdx + 1
+//     }
+
+//     endIdx = ret.length - 1
+//     for(let j = startIdx; j <= endIdx; j++) {
+//       const cur = [...ret[j]]
+//       cur.push(nums[i])
+//       ret.push(cur)
+//     }
+//   }
+
+//   return ret
+// }
+
+/**
+ * DFS
+ *
+ * 遍历，如果加一个 while 循环确保后面重复的元素都不会参与此层的遍历。
+ *
+ * 时间复杂度和空间复杂度和 78 应该是一样的。
+ */
 var subsets = function(nums) {
   const ret = [[]]
-  let startIdx = 0
-  let endIdx = 0
+  dfs(nums, [], 0, ret)
+  return ret
+}
 
-  for(let i = 0; i < nums.length; i++) {
-    startIdx = 0
+function dfs(nums, cur, start, ret) {
+  for(let i = start; i < nums.length; i++) {
+    cur.push(nums[i])
+    ret.push([...cur])
+    dfs(nums, cur, i + 1, ret)
+    cur.pop()
 
-    if(i > 0 && nums[i] === nums[i - 1]) {
-      startIdx = endIdx + 1
-    }
-
-    endIdx = ret.length - 1
-    for(let j = startIdx; j <= endIdx; j++) {
-      const cur = [...ret[j]]
-      cur.push(nums[i])
-      ret.push(cur)
+    // 排重
+    while(nums[i] === nums[i + 1]) {
+      i += 1
     }
   }
-
-  return ret
 }
 
 subsets([1,2,2])
