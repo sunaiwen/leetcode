@@ -16,11 +16,13 @@
  *
  * 其实想想确实是这样……前面的元素带来的组合结果，后面的元素都不再介入即可。
  *
+ * 当然这个方法的缺点就是要先排序.
+ *
  * Time Complexity:
  */
 var permuteUnique = function(nums) {
   const ret = []
-  dfs(nums, [], ret)
+  dfs(nums.sort(), [], ret)
   return ret
 };
 
