@@ -11,7 +11,7 @@
  */
 
 /**
- * 简单的 dfs，runtime 只打败了 9%... 
+ * 简单的 dfs，runtime 只打败了 9%...
  */
 // var letterCasePermutation = function(S) {
 //   const ret = []
@@ -45,6 +45,15 @@
 //     }
 //   }
 // }
+
+/**
+ * BFS
+ * Time complexity: O(2^n)，因为一棵树的层数刚好和 S 的长度 n 相等。
+ * 如果长度为 n，那么遍历整棵树需要的运算次数为 2^0 + 2^1 + 2^2 + ...2^n = ~2^n。
+ *
+ * Space complexity: O(n)，因为中间只需要一个 queue 去装载每层的的结果。
+ * 但是每一层都是拿出一个 push 进去一个，数量一直都为 n，所以为 O(n)。
+ */
 
 var letterCasePermutation = function (S) {
   const queue = ['']
