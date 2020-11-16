@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/784.letter-case-permutation.js"
+      "program": "${workspaceFolder}/22.generate-parentheses.js"
     }
   ]
 }
